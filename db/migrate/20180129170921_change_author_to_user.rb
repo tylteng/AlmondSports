@@ -1,6 +1,6 @@
 class ChangeAuthorToUser < ActiveRecord::Migration[5.1]
   def change
-    remove_column :users, :author_id, :integer
-    add_column :users, :user_id, :integer
+    remove_column :articles, :author_id, :integer
+    add_column :articles, :user_id, :integer
   end
 end
