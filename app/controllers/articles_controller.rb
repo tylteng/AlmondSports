@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
 
   def home
-
+    @most_recent = Article.most_recent
+    @most_popular
   end
 
   def index
