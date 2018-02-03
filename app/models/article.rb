@@ -6,8 +6,8 @@ class Article < ApplicationRecord
     Article.all.sort_by{|article| article[:created_at]}.reverse
   end
 
-  def most_popular
-
+  def self.most_popular
+    Article.all.sort_by{|article| article[:views]}.reverse
   end
 
 end

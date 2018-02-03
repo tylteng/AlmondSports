@@ -1,5 +1,9 @@
 <h1> <%= @article.category.name %> </h1>
-<h2><%= @article.title %></h2> <span>by: <%= link_to "#{@article.user.username}", user_path(@article.user)%></span>
+<button type="button" name="button">Like</button>
+
+<h2><%= @article.title %></h2>
+<span>by: <%= link_to "#{@article.user.username}", user_path(@article.user)%></span>
+
 <br>
 <img src="<%= @article.picture %>" alt="<%= @article.title %>">
 <p> <%= @article.content %> </p>

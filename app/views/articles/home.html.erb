@@ -9,8 +9,16 @@
   <% end %>
   </div>
 <% end %>
-
 <br>
 <h1>Most Popular Articles</h1>
+<% @most_popular.each do |x| %>
+  <div class="most-popular">
+  <h3><%= x.title %></h3> <span>by: <%= link_to "#{x.user.username}", user_path(x.user)%></span>
+  <br>
+  <%= link_to article_path(x) do %>
+    <%= image_tag x.picture %>
+  <% end %>
+  </div>
+<% end %>
 <br>
 <h2>About Me</h2>

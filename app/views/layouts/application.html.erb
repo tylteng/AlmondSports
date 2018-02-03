@@ -17,6 +17,10 @@
         <%= link_to 'Login', new_sessions_path %>
       <% else %>
         <%= link_to 'Logout', sessions_path, :method => :delete %>
+        <%= link_to 'Profile', user_path(current_user) %>
+      <% end %>
+      <% if current_user && current_user.admin == true %>
+        <%= link_to 'New Article', new_article_path %>
       <% end %>
     </nav>
 
