@@ -10,6 +10,9 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
+  def about_us
+  end
+
   def show
     @article = Article.find_by(id: params[:id])
     @article.views += 1
@@ -17,13 +20,15 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @article = current_user.articles.build
+    @article = Article.new
+    @categories = Category.all
   end
 
   def create
-    @category = Category.find_by(name: params[:category])
+    @category = Category.find_by(name: params[:article][:category])
 
-    @article = current_user.articles.build(title: params[:title], picture: params[:picture], content: params[:content], category: @category)
+    @article = Article.new(title: params[:article][:title], picture: params[:article][:picture], content: params[:article][:content], user_id: current_user.id, category: @category)
+
 
     if @article.save
       redirect_to root_url
@@ -33,11 +38,16 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-
+    @article = Article.find_by(id: params[:id])
   end
 
   def update
-
+    @article = Article.find_by(id: params[:id])
   end
 
+  def destroy
+    @article = Article.find_by(id: params[:id])
+    @article.destroy
+    redirect_to user_url(current_user)
+  end
 end

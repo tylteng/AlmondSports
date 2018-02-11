@@ -1,9 +1,15 @@
-<h1> <%= @article.category.name %> </h1>
-<button type="button" name="button">Like</button>
+<!-- <h1> <%= @article.category.name %> </h1> -->
 
 <h2><%= @article.title %></h2>
-<span>by: <%= link_to "#{@article.user.username}", user_path(@article.user)%></span>
+<p>by: <%= link_to "#{@article.user.username}", user_path(@article.user)%></p>
 
-<br>
 <img src="<%= @article.picture %>" alt="<%= @article.title %>">
+<br>
+<button type="button" name="button">Like</button>
+<br>
 <p> <%= @article.content %> </p>
+
+<% if current_user && current_user == @article.user %>
+  <%= link_to 'Edit', edit_article_path %>
+  <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure to delete this recipe?' } %>
+<% end %>
