@@ -1,0 +1,27 @@
+html {
+  font-family: Helvetica;
+  box-sizing: content-box;
+  background-color: rgb(236, 236, 236);
+  color: black;
+}
+
+
+#logo {
+  padding: 10px;
+  width: 160px;
+  text-align: left;
+  position: absolute;
+}
+
+.navigation a {
+  color: white;
+  text-decoration: none;
+  padding: 8px;
+  display: inline-block;
+}
+
+.navigation {
+  background-color: black;
+  height: 125px;
+  text-align: right;
+}

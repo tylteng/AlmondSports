@@ -1,23 +1,27 @@
+<div class="most-popular-container">
+
 <h1>Most Popular Articles</h1>
 <% @most_popular.each do |article| %>
 <div class="most-popular">
   <h3><%= article.title %></h3> <span>by: <%= link_to "#{article.user.username}", user_path(article.user)%></span>
   <br>
   <%= link_to article_path(article) do %>
-  <%= image_tag article.picture %>
+  <%= image_tag article.picture, class: "article-image" %>
   <% end %>
 </div>
 <% end %>
-<br>
+</div>
 
+
+<div class="most-recent-conainer">
 <h1>Most Recent Articles</h1>
 <% @most_recent.each do |article| %>
   <div class="most-recent">
   <h3><%= article.title %></h3> <span>by: <%= link_to "#{article.user.username}", user_path(article.user)%></span>
   <br>
   <%= link_to article_path(article) do %>
-    <%= image_tag article.picture %>
+    <%= image_tag article.picture, class: "article-image" %>
   <% end %>
   </div>
 <% end %>
-<br>
+</div>

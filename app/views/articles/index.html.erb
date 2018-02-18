@@ -1,5 +1,7 @@
+<div class="most-recent-container">
+
 <% @articles.each do |article| %>
-<div class="articles">
+<div class="most-recent">
 
 <p> <%= article.category.name %> </p>
 <h2> <%= article.title %> </h2>
@@ -7,7 +9,7 @@
 
 <p>
 <%= link_to article_path(article) do %>
-  <%= image_tag article.picture %>
+  <%= image_tag article.picture, class: "article-image" %>
 <% end %>
 </p>
 
@@ -16,3 +18,6 @@
 </div>
 
 <% end %>
+
+
+</div>
